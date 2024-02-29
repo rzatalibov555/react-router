@@ -1,7 +1,11 @@
 import React from 'react'
 import './App.css';
+// import {Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { Home } from './components/Home';
 import { Cars } from './components/Cars';
+// import { Navbar } from './components/Navbar';
+
 
 class App extends React.Component{
 
@@ -27,16 +31,45 @@ class App extends React.Component{
 
         <nav style={{textAlign:"center"}}>
           <ul style={{listStyle:"none"}}>
-            <li><a href='/'>Home</a></li>
-            <li><a href='/cars'>Cars</a></li>
+            <li style={{display:"inline-block", marginRight:"10px"}}>
+              <NavLink to="/">Home</NavLink>
+              </li>
+            <li style={{display:"inline-block", marginRight:"10px"}}>
+              <NavLink to='/cars'>Cars</NavLink></li>
           </ul>
         </nav>
 
+        
+
         <hr/>
 
-        <Home/>
+        {/* <Home/> */}
+        {/* <Route path='/' component={Home} /> */}
+
+        
+     
+
         <div className='container'>
-            <Cars cars={this.state.cars} />
+             
+          <BrowserRouter>
+            <Routes>
+              {/* <Navbar/> */}
+              <Route path="/" element={<Home/>} />
+              {/* OR */}
+              {/* <Route path="/" Component={Home} /> */}
+
+              <Route path="/cars" element={<Cars cars = {this.state.cars} />} />
+              {/* OR */}
+              {/* <Route path='/cars'>
+                <Cars cars={this.state.cars} />
+              </Route> */}
+
+
+
+            </Routes>
+          </BrowserRouter>
+
+            {/* <Cars cars={this.state.cars} /> */}
         </div>
       </div>
     )
