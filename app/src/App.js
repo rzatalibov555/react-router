@@ -7,58 +7,59 @@ import { Cars } from './components/Cars';
 // import { Navbar } from './components/Navbar';
 
 
-class App extends React.Component{
+class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
 
-        cars: [
-          {name: "BMW", year: "2015"},
-          {name: "Mercedes", year: "2020"},
-          {name: "Mazda", year: "2006"},
-          {name: "Volkswagen", year: "2002"},
-          {name: "Ford", year: "2024"},
-        ]
+      cars: [
+        { name: "BMW", year: "2015" },
+        { name: "Mercedes", year: "2020" },
+        { name: "Mazda", year: "2006" },
+        { name: "Volkswagen", year: "2002" },
+        { name: "Ford", year: "2024" },
+      ]
     }
   }
 
 
-  render(){
-    return(
+  render() {
+    return (
       <div className='App'>
+        <BrowserRouter>
+          <nav style={{ textAlign: "center" }}>
+            <ul style={{ listStyle: "none" }}>
+              <li style={{ display: "inline-block", marginRight: "10px" }}>
 
-        <nav style={{textAlign:"center"}}>
-          <ul style={{listStyle:"none"}}>
-            <li style={{display:"inline-block", marginRight:"10px"}}>
-              <NavLink to="/">Home</NavLink>
+                <NavLink to="/">Home</NavLink>
               </li>
-            <li style={{display:"inline-block", marginRight:"10px"}}>
-              <NavLink to='/cars'>Cars</NavLink></li>
-          </ul>
-        </nav>
+              <li style={{ display: "inline-block", marginRight: "10px" }}>
+                <NavLink to='/cars'>Cars</NavLink></li>
+            </ul>
+          </nav>
+        </BrowserRouter>
 
-        
 
-        <hr/>
+        <hr />
 
         {/* <Home/> */}
         {/* <Route path='/' component={Home} /> */}
 
-        
-     
+
+
 
         <div className='container'>
-             
+
           <BrowserRouter>
             <Routes>
               {/* <Navbar/> */}
-              <Route path="/" element={<Home/>} />
+              <Route path="/" element={<Home />} />
               {/* OR */}
               {/* <Route path="/" Component={Home} /> */}
 
-              <Route path="/cars" element={<Cars cars = {this.state.cars} />} />
+              <Route path="/cars" element={<Cars cars={this.state.cars} />} />
               {/* OR */}
               {/* <Route path='/cars'>
                 <Cars cars={this.state.cars} />
@@ -69,12 +70,12 @@ class App extends React.Component{
             </Routes>
           </BrowserRouter>
 
-            {/* <Cars cars={this.state.cars} /> */}
+          {/* <Cars cars={this.state.cars} /> */}
         </div>
       </div>
     )
   }
-  
+
 }
 
 
